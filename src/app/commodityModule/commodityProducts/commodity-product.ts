@@ -4,6 +4,7 @@ interface CommodityProductDef {
     quantity: number;
     unit: string;
     location: string;
+    remarks: string;
 }
 
 export class CommodityProduct implements CommodityProductDef {
@@ -13,7 +14,9 @@ export class CommodityProduct implements CommodityProductDef {
         public category='1', 
         public quantity=0, 
         public unit='', 
-        public location='') {
+        public location='',
+        public remarks=''
+        ) {
 
     }
 }

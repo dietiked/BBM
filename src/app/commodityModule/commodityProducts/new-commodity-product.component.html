@@ -6,30 +6,54 @@
         <div class="header" data-background-color="red">
           <h3 class="title">Nuovo prodotto</h3>
         </div>
-        <div class="content table-responsive table-full-width">
-          <table class="table">
-            <tr>
-              <td>Prodotto</td>
-              <td><input name="name" placeholder="prodotto" [(ngModel)]="product.name" class="form-control"></td>
-            </tr>
-            <tr>
-              <td>Categoria</td>
-              <td>
-                <select [(ngModel)]="product.category" class="form-control">
+        <div class="content">
+
+          <form>
+            <div class="row">
+              <div class="col-md-4">
+                Prodotto
+              </div>
+              <div class="col-md-8">
+                <input name="name" [(ngModel)]="product.name" class="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Categoria
+              </div>
+              <div class="col-md-8">
+                <select [(ngModel)]="product.category" class="form-control" name="category">
                     <option *ngFor="let category of categories" [value]="category.$key">{{category.name}}</option>
                 </select>
-            </tr>
-            <tr>
-              <td>Unit&agrave;</td>
-              <td><input name="unit" placeholder="unità" [(ngModel)]="product.unit" class="form-control"></td>
-            </tr>
-            <tr>
-              <td>Luogo</td>
-              <td><input name="location" placeholder="luogo" [(ngModel)]="product.location" class="form-control"></td>
-            </tr>
-          </table>
-          <button class="btn btn-default" [routerLink]="'/commodities'">Annulla</button>
-          <button class="btn btn-primary btn-fill" (click)="save()">Salva</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Unit&agrave;
+              </div>
+              <div class="col-md-8">
+                <input name="unit" [(ngModel)]="product.unit" class="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Luogo
+              </div>
+              <div class="col-md-8">
+                <input name="location" [(ngModel)]="product.location" class="form-control">
+              </div>
+            </div>            
+            <div class="row">
+              <div class="col-md-4">
+                Osservazioni
+              </div>
+              <div class="col-md-8">
+                <textarea name="remarks" [(ngModel)]="product.remarks" class="form-control"></textarea>
+              </div>
+            </div>      
+            <button class="btn btn-default" [routerLink]="'/commodities'">Annulla</button>
+            <button class="btn btn-primary btn-fill pull-right" (click)="save()">Salva</button>
+          </form>
         </div>
       </div>
     </div>
