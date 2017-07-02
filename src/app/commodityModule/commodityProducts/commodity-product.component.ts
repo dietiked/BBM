@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { CommodityProduct } from './commodity-product';
-import { CommodityProductService } from './commodity-product.service';
+import { CommodityProduct } from '../_models/index';
+import { CommodityProductService } from '../_services/index';
 
 @Component({
   moduleId: module.id,

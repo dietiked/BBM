@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { CommodityDefinition } from '../commodity.definition';
-import { CommodityProduct } from './commodity-product';
+import { CommodityProduct } from '../_models/index';
 import { CommodityCategoryService } from '../commodityCategories/index';
 
 @Injectable()

@@ -26,7 +26,10 @@
               <td>{{product.category.name}}</td>
               <td>{{product.quantity}} {{product.unit}}</td>
               <td>{{product.location}}</td>
-              <td><a [routerLink]="['products', product.$key]"><i class="fa fa-pencil"></i></a></td>
+              <td>
+                <a [routerLink]="['products', product.$key]"><i class="fa fa-pencil"></i></a>
+                <a [routerLink]="['products', product.$key, 'movements', 'new']"><i class="fa fa-plus"></i></a>
+              </td>
             </tr>
             </tbody>
           </table>

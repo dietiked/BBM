@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { NavigationService } from '../../_sharedServices/navigation.service';
-import { CommodityProductService } from './commodity-product.service';
+import { CommodityProductService } from '../_services/index';
 import { CommodityCategoryService } from '../commodityCategories/index';
-import { CommodityProduct } from './index';
+import { CommodityProduct } from '../_models/index';
 
 @Component({
   moduleId: module.id,

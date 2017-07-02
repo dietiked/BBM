@@ -1,0 +1,71 @@
+<div class="main-content">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header" data-background-color="red">
+          <h3 class="title">Nuovo movimento</h3>
+        </div>
+        <div class="content">
+          <form>
+            <div class="row">
+              <div class="col-md-4">
+                Prodotto
+              </div>
+              <div class="col-md-8">
+                {{product.name}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Data
+              </div>
+              <div class="col-md-8">
+                <input name="date" [(ngModel)]="movement.date" class="form-control" type="date">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Quantit&agrave;
+              </div>
+              <div class="col-md-7">
+                <input name="quantity" [(ngModel)]="movement.quantity" class="form-control">
+              </div>
+               <div class="col-md-1">
+                {{product.unit}}
+              </div>
+            </div>          
+            <div class="row">
+              <div class="col-md-4">
+                Osservazioni
+              </div>
+              <div class="col-md-8">
+                <textarea name="remarks" [(ngModel)]="movement.remarks" class="form-control"></textarea>
+              </div>
+            </div>      
+            <div class="row" *ngIf="movement.quantity < 0">
+              <div class="col-md-4">
+                Batch
+              </div>
+              <div class="col-md-8">
+                <input name="quantity" [(ngModel)]="movement.batch" class="form-control">
+              </div>
+            </div>   
+            <div class="row" *ngIf="movement.quantity > 0">
+              <div class="col-md-4">
+                Consegna
+              </div>
+              <div class="col-md-8">
+                <input name="quantity" [(ngModel)]="movement.delivery" class="form-control">
+              </div>
+            </div>   
+            <button class="btn btn-default" [routerLink]="'/commodities'">Annulla</button>
+            <button class="btn btn-primary btn-fill pull-right" (click)="save()">Salva</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+

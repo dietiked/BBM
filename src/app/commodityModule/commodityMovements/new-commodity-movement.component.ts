@@ -2,32 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { NavigationService } from '../../_sharedServices/navigation.service';
-import { CommodityProductService } from '../_services/index';
-import { CommodityCategoryService } from '../commodityCategories/index';
-import { CommodityProduct } from '../_models/index';
-import 'rxjs/add/operator/switchMap';
+import { CommodityProductService, CommodityMovementService } from '../_services/index';
+import { CommodityProduct, CommodityMovement } from '../_models/index';
 
 @Component({
   moduleId: module.id,
-  templateUrl: './edit-commodity-product.component.html',
+  templateUrl: './new-commodity-movement.component.html',
 })
 
-export class EditCommodityProductComponent implements OnInit {
+export class NewCommodityMovementComponent implements OnInit {
   
   public product = new CommodityProduct();
-  public categories = [];
+  public movement = new CommodityMovement();
 
   constructor(
     private route: ActivatedRoute,
-    private navService: NavigationService,
     private productService: CommodityProductService,
-    private categoryService: CommodityCategoryService
+    private movementService: CommodityMovementService,
+    private navService: NavigationService,
   ) { }
 
   ngOnInit() {
-    this.categoryService.categories()
-    .subscribe(categories => this.categories = categories);
-
     this.route.params
     .switchMap((params: Params) => 
       this.productService.productWithKey(params['id']))
@@ -37,7 +32,7 @@ export class EditCommodityProductComponent implements OnInit {
   }
 
   save() {
-      this.productService.update(this.product)
+      this.movementService.save(this.movement, this.product['$key'])
       .then(_ => {
         this.navService.goToCommodities();
       });

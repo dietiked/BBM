@@ -1,0 +1,1 @@
+export * from './new-commodity-movement.component';

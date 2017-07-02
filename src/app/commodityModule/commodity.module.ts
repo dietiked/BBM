@@ -7,11 +7,13 @@ import { NavigationService } from '../_sharedServices/navigation.service';
 
 import { CommodityRoutingModule } from './commodity.routing';
 import { CommodityDefinition } from './commodity.definition';
-import { CommodityProductService } from './commodityProducts/index';
+import { CommodityProductService } from './_services/index';
 import { CommodityProductComponent } from './commodityProducts/index';
 import { NewCommodityProductComponent } from './commodityProducts/index';
 import { EditCommodityProductComponent } from './commodityProducts/index';
 import { CommodityCategoryService } from './commodityCategories/index';
+import { NewCommodityMovementComponent } from './commodityMovements/index';
+import { CommodityMovementService } from './_services/index';
 
 @NgModule({
   imports: [
@@ -24,12 +26,14 @@ import { CommodityCategoryService } from './commodityCategories/index';
     CommodityProductComponent,
     NewCommodityProductComponent,
     EditCommodityProductComponent,
+    NewCommodityMovementComponent,
   ],
   providers: [
     NavigationService,
     CommodityDefinition,
     CommodityProductService,
     CommodityCategoryService,
+    CommodityMovementService,
   ],
   bootstrap: []
 })
