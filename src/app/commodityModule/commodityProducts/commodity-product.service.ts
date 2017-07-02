@@ -12,6 +12,7 @@ import { CommodityCategoryService } from '../commodityCategories/index';
 export class CommodityProductService implements OnInit {
 
   _products: FirebaseListObservable<CommodityProduct[]>;
+  _product: FirebaseObjectObservable<CommodityProduct>;
 
   constructor(
     private af: AngularFireDatabase,
@@ -42,8 +43,17 @@ export class CommodityProductService implements OnInit {
 
   }
 
+  public productWithKey(key: string) {
+    this._product = this.af.object(CommodityDefinition.productWithKey(key));
+    return this._product;
+  }
+
   public save(product) {
-    this._products.push(product);
+    return this._products.push(product);
+  }
+
+  public update(product) {
+    return this._product.update(product);
   }
 
 }

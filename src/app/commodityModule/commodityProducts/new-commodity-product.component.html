@@ -28,7 +28,8 @@
               <td><input name="location" placeholder="luogo" [(ngModel)]="product.location" class="form-control"></td>
             </tr>
           </table>
-          <button class="btn btn-primary" (click)="save()">Salva</button>
+          <button class="btn btn-default" [routerLink]="'/commodities'">Annulla</button>
+          <button class="btn btn-primary btn-fill" (click)="save()">Salva</button>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { NavigationService } from '../../_sharedServices/navigation.service';
 import { CommodityProductService } from './commodity-product.service';
 import { CommodityCategoryService } from '../commodityCategories/index';
 import { CommodityProduct } from './index';
@@ -16,7 +17,8 @@ export class NewCommodityProductComponent implements OnInit {
 
   constructor(
     private productService: CommodityProductService,
-    private categoryService: CommodityCategoryService
+    private categoryService: CommodityCategoryService,
+    private navService: NavigationService,
   ) { }
 
   ngOnInit() {
@@ -25,7 +27,10 @@ export class NewCommodityProductComponent implements OnInit {
   }
 
   save() {
-      this.productService.save(this.product);
+      this.productService.save(this.product)
+      .then(_ => {
+        this.navService.goToCommodities();
+      });
   }
   
 }
