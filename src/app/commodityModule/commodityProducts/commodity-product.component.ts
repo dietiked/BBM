@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { CommodityProduct } from './commodity-product';
 import { CommodityProductService } from './commodity-product.service';
 
 @Component({
@@ -9,16 +10,16 @@ import { CommodityProductService } from './commodity-product.service';
 
 export class CommodityProductComponent implements OnInit {
   
-  products: FirebaseListObservable<any>;
+  products: CommodityProduct[];
 
   constructor(
     private productService: CommodityProductService
   ) { }
 
   ngOnInit() {
-    this.products = this.productService.products();
-    this.products.subscribe(x => {
-      console.log(x);
+    this.productService.products()
+    .subscribe(products => {
+      this.products = products;
     })
   }
   

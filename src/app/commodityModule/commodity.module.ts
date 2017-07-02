@@ -9,6 +9,8 @@ import { CommodityRoutingModule } from './commodity.routing';
 import { CommodityDefinition } from './commodity.definition';
 import { CommodityProductService } from './commodityProducts/index';
 import { CommodityProductComponent } from './commodityProducts/index';
+import { NewCommodityProductComponent } from './commodityProducts/index';
+import { CommodityCategoryService } from './commodityCategories/index';
 
 @NgModule({
   imports: [
@@ -19,11 +21,13 @@ import { CommodityProductComponent } from './commodityProducts/index';
   ],
   declarations: [
     CommodityProductComponent,
+    NewCommodityProductComponent,
   ],
   providers: [
     NavigationService,
     CommodityDefinition,
     CommodityProductService,
+    CommodityCategoryService,
   ],
   bootstrap: []
 })
