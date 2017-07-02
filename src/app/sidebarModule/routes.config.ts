@@ -7,5 +7,5 @@ export interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'fa fa-home', class: '' },
-    { path: '/bonitur', title: 'Bonitur',  icon:'fa fa-bug', class: '' }
+    { path: '/commodities', title: 'Rohstoffe',  icon:'fa fa-truck', class: '' }
 ];

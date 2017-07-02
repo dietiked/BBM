@@ -1,10 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  moduleId: module.id,
+  selector: 'app-component',
+  templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'app';
+
+export class AppComponent implements OnInit {
+
+  isUserLoggedIn = true;
+
+  constructor(
+    //private authenticationService: DDAuthenticationService,
+  ) {
+   /*this.authenticationService.authState().subscribe(
+      (message: DDAuthenticationMessage) => {
+        this.isUserLoggedIn = authenticationService.isUserLoggedIn();
+      }
+    );*/
+  }
+
+  ngOnInit() {
+
+  }
 }
+

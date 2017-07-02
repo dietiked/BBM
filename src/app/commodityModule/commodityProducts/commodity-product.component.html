@@ -1,0 +1,34 @@
+<div class="main-content">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header" data-background-color="red">
+          <h3 class="title">Rohstofflager</h3>
+        </div>
+        <div class="content table-responsive table-full-width">
+          <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+              <th>Prodotto</th>
+              <th>Quantit&agrave;</th>
+              <th>Luogo</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let product of products | async">
+              <td>{{product.name}}</td>
+              <td>{{product.quantity}} {{product.unit}}</td>
+              <td>{{product.location}}</td>
+              <td><!--<a [routerLink]="['commodities', 'products', form.$key]"><i class="fa fa-pencil"></i></a>--></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
