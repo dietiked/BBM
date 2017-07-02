@@ -10,6 +10,7 @@ import { CommodityDefinition } from './commodity.definition';
 import { CommodityProductService } from './commodityProducts/index';
 import { CommodityProductComponent } from './commodityProducts/index';
 import { NewCommodityProductComponent } from './commodityProducts/index';
+import { EditCommodityProductComponent } from './commodityProducts/index';
 import { CommodityCategoryService } from './commodityCategories/index';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { CommodityCategoryService } from './commodityCategories/index';
   declarations: [
     CommodityProductComponent,
     NewCommodityProductComponent,
+    EditCommodityProductComponent,
   ],
   providers: [
     NavigationService,
