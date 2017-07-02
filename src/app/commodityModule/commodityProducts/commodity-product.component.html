@@ -5,12 +5,16 @@
       <div class="card">
         <div class="header" data-background-color="red">
           <h3 class="title">Rohstofflager</h3>
+          <button routerLink="/commodities/products/new" class="btn btn-primary">
+            Nuovo prodotto
+          </button>
         </div>
         <div class="content table-responsive table-full-width">
           <table class="table table-hover table-striped">
             <thead>
             <tr>
               <th>Prodotto</th>
+              <th>Categoria</th>
               <th>Quantit&agrave;</th>
               <th>Luogo</th>
               <th></th>
@@ -19,6 +23,7 @@
             <tbody>
             <tr *ngFor="let product of products | async">
               <td>{{product.name}}</td>
+              <td>{{product.category.name}}</td>
               <td>{{product.quantity}} {{product.unit}}</td>
               <td>{{product.location}}</td>
               <td><!--<a [routerLink]="['commodities', 'products', form.$key]"><i class="fa fa-pencil"></i></a>--></td>

@@ -1,0 +1,38 @@
+<div class="main-content">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header" data-background-color="red">
+          <h3 class="title">Nuovo prodotto</h3>
+        </div>
+        <div class="content table-responsive table-full-width">
+          <table class="table">
+            <tr>
+              <td>Prodotto</td>
+              <td><input name="name" placeholder="prodotto" [(ngModel)]="product.name" class="form-control"></td>
+            </tr>
+            <tr>
+              <td>Categoria</td>
+              <td>
+                <select [(ngModel)]="product.category" class="form-control">
+                    <option *ngFor="let category of categories" [value]="category.$key">{{category.name}}</option>
+                </select>
+            </tr>
+            <tr>
+              <td>Unit&agrave;</td>
+              <td><input name="unit" placeholder="unità" [(ngModel)]="product.unit" class="form-control"></td>
+            </tr>
+            <tr>
+              <td>Luogo</td>
+              <td><input name="location" placeholder="luogo" [(ngModel)]="product.location" class="form-control"></td>
+            </tr>
+          </table>
+          <button class="btn btn-primary" (click)="save()">Salva</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
