@@ -8,10 +8,10 @@ import { CommodityProduct, CommodityMovement } from '../_models/index';
 
 @Component({
   moduleId: module.id,
-  templateUrl: './new-commodity-movement.component.html',
+  templateUrl: './edit-commodity-movement.component.html',
 })
 
-export class NewCommodityMovementComponent implements OnInit {
+export class EditCommodityMovementComponent implements OnInit {
   
   public product = new CommodityProduct();
   public movement = new CommodityMovement();
@@ -27,14 +27,21 @@ export class NewCommodityMovementComponent implements OnInit {
   ngOnInit() {
     this.route.params
     .switchMap((params: Params) => 
+      this.movementService.movementWithKeyForProduct(params['movementId'], params['id']))
+      .subscribe((movement:CommodityMovement) => {
+          console.log('Movement', movement);
+          this.movement = movement;
+    });  
+    this.route.params
+    .switchMap((params: Params) => 
       this.productService.productWithKey(params['id']))
       .subscribe((product:CommodityProduct) => {
-        this.product = product;
+          this.product = product;
     });  
   }
 
   public save() {
-      this.movementService.save(this.movement, this.product['$key'])
+      this.movementService.update(this.movement)
       .then(_ => {
         this.location.back();
       });

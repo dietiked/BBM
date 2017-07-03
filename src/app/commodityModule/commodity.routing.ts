@@ -5,6 +5,7 @@ import { NewCommodityProductComponent } from './commodityProducts/index';
 import { EditCommodityProductComponent } from './commodityProducts/index';
 import { DetailCommodityProductComponent } from './commodityProducts/index';
 import { NewCommodityMovementComponent } from './commodityMovements/index';
+import { EditCommodityMovementComponent } from './commodityMovements/index';
 
 const commodityRoutes: Routes = [
     { path: 'commodities', component: CommodityProductComponent, canActivate: [] },
@@ -13,6 +14,7 @@ const commodityRoutes: Routes = [
     { path: 'commodities/products/:id', component: DetailCommodityProductComponent, canActivate: [] },
     { path: 'commodities/products/:id/edit', component: EditCommodityProductComponent, canActivate: [] },
     { path: 'commodities/products/:id/movements/new', component: NewCommodityMovementComponent, canActivate: [] },
+    { path: 'commodities/products/:id/movements/:movementId', component: EditCommodityMovementComponent, canActivate: [] },
 ];
 
 @NgModule({

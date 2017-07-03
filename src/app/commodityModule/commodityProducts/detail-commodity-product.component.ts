@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { NavigationService } from '../../_sharedServices/navigation.service';
 import { CommodityProductService } from '../_services/index';
@@ -19,6 +20,7 @@ export class DetailCommodityProductComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private location: Location,
     private navService: NavigationService,
     private productService: CommodityProductService,
     private movementService: CommodityMovementService,
@@ -40,5 +42,9 @@ export class DetailCommodityProductComponent implements OnInit {
     });  
 
   }
-  
+
+  public cancel() {
+    this.location.back();
+  }  
+    
 }

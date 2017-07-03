@@ -56,4 +56,12 @@ export class CommodityProductService implements OnInit {
     return this._product.update(product);
   }
 
+  private updateLagerQuantity() {
+
+  }
+
+  public recalculateLagerQuantity() {
+
+  }
+
 }

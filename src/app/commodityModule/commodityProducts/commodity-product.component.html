@@ -24,13 +24,13 @@
             <tbody>
             <tr *ngFor="let product of products | async">
               <td>
-                <a [routerLink]="['products', product.$key]"><i class="fa fa-search"></i></a>
                 {{product.name}}
               </td>
               <td>{{product.category.name}}</td>
               <td>{{product.quantity}} {{product.unit}}</td>
               <td>{{product.location}}</td>
               <td>
+                <a [routerLink]="['products', product.$key]"><i class="fa fa-search"></i></a>
                 <a [routerLink]="['products', product.$key, 'edit']"><i class="fa fa-pencil"></i></a>
                 <a [routerLink]="['products', product.$key, 'movements', 'new']"><i class="fa fa-shopping-basket"></i></a>
               </td>

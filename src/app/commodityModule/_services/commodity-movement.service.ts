@@ -3,8 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/first';
 
 import { CommodityDefinition } from '../commodity.definition';
+import { CommodityProductService } from './index';
 import { CommodityMovement } from '../_models/index';
 
 @Injectable()
@@ -15,6 +17,7 @@ export class CommodityMovementService implements OnInit {
 
   constructor(
     private af: AngularFireDatabase,
+    private productService: CommodityProductService
   ) {
   }
 
@@ -31,15 +34,28 @@ export class CommodityMovementService implements OnInit {
     return this._movement;
   }
 
-  public save(movement, productKey) {
+  public save(movement:CommodityMovement, productKey:string) {
     if (! this._movements) {
         this._movements = this.af.list(CommodityDefinition.movementsForProduct(productKey));
     }
-    return this._movements.push(movement);
+    let save = this._movements.push(movement);
+    // Update total lager quantity!
+    save.then(_ => {
+      this.updateLagerQuantity(movement, productKey);
+    })
+    return save;
   }
 
   public update(movement) {
     return this._movement.update(movement);
+  }
+
+  private updateLagerQuantity(movement:CommodityMovement, productKey:string) {
+    this.productService.productWithKey(productKey)
+    .first().subscribe(product => {
+      product.quantity = Number(product.quantity) + Number(movement.quantity);
+      this.productService.update(product);
+    })
   }
 
 }

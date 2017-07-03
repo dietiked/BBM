@@ -14,6 +14,7 @@ import { EditCommodityProductComponent } from './commodityProducts/index';
 import { DetailCommodityProductComponent } from './commodityProducts/index';
 import { CommodityCategoryService } from './commodityCategories/index';
 import { NewCommodityMovementComponent } from './commodityMovements/index';
+import { EditCommodityMovementComponent } from './commodityMovements/index';
 import { CommodityMovementService } from './_services/index';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { CommodityMovementService } from './_services/index';
     EditCommodityProductComponent,
     DetailCommodityProductComponent,
     NewCommodityMovementComponent,
+    EditCommodityMovementComponent,
   ],
   providers: [
     NavigationService,

@@ -17,10 +17,10 @@
             </div>
             <div class="row">
               <div class="col-md-4">
-                Unit&agrave;
+                Quantit&agrave;
               </div>
               <div class="col-md-8">
-                {{product.unit}}
+                {{product.quantity}} {{product.unit}}
               </div>
             </div>
             <div class="row">
@@ -39,9 +39,10 @@
                 {{product.remarks}}
               </div>
             </div>      
-            <div class="row">
+            <div class="row" style="margin-top: 20px;">
                 <div class="col-md-12">
-                    <button class="btn btn-default pull-right" [routerLink]="'/commodities'">Annulla</button>
+                    <button class="btn btn-default" (click)="cancel()">Annulla</button>
+                    <button class="btn btn-default pull-right" [routerLink]="['edit']">Modifica</button>
                 </div>
             </div>
         </div>
@@ -68,19 +69,21 @@
                     <tr>
                         <th>Data</th>
                         <th>Quantit&agrave;</th>
-                        <th>Batch/Consegna</th>
+                        <th>Consegna</th>
+                        <th>Batch</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let movement of movements">
-                        <td>{{movement.date}}</td>
+                        <td>{{movement.date | date:'longDate'}}</td>
                         <td>{{movement.quantity}} {{product.unit}}</td>
                         <td>
-                            <span *ngIf="movement.quantity < 0">{{movement.batch}}</span>
                             <span *ngIf="movement.quantity > 0">{{movement.delivery}}</span>
                         </td>
                         <td>
+                            <span *ngIf="movement.quantity < 0">{{movement.batch}}</span>
+                        </td>                        <td>
                             <a [routerLink]="['movements', movement.$key]"><i class="fa fa-pencil"></i></a>
                         </td>                        
                     </tr>
