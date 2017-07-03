@@ -4,13 +4,14 @@
     <div class="col-md-12">
       <div class="card">
         <div class="header" data-background-color="red">
-          <h3 class="title">Rohstofflager</h3>
-          <button routerLink="/commodities/products/new" class="btn btn-primary">
-            Nuovo prodotto
-          </button>
+          <h3 class="title">Rohstofflager
+            <a [routerLink]="['/commodities/products/new']" class="pull-right">
+              <i class="fa fa-plus"></i>
+            </a>
+          </h3>
         </div>
         <div class="content table-responsive table-full-width">
-          <table class="table table-hover table-striped">
+          <table class="table table-striped">
             <thead>
             <tr>
               <th>Prodotto</th>
@@ -22,13 +23,16 @@
             </thead>
             <tbody>
             <tr *ngFor="let product of products | async">
-              <td>{{product.name}}</td>
+              <td>
+                <a [routerLink]="['products', product.$key]"><i class="fa fa-search"></i></a>
+                {{product.name}}
+              </td>
               <td>{{product.category.name}}</td>
               <td>{{product.quantity}} {{product.unit}}</td>
               <td>{{product.location}}</td>
               <td>
-                <a [routerLink]="['products', product.$key]"><i class="fa fa-pencil"></i></a>
-                <a [routerLink]="['products', product.$key, 'movements', 'new']"><i class="fa fa-plus"></i></a>
+                <a [routerLink]="['products', product.$key, 'edit']"><i class="fa fa-pencil"></i></a>
+                <a [routerLink]="['products', product.$key, 'movements', 'new']"><i class="fa fa-shopping-basket"></i></a>
               </td>
             </tr>
             </tbody>

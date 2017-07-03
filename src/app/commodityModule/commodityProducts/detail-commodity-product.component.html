@@ -1,0 +1,96 @@
+<div class="main-content">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header" data-background-color="red">
+          <h3 class="title">{{product.name}}</h3>
+        </div>
+        <div class="content">
+            <div class="row">
+              <div class="col-md-4">
+                Categoria
+              </div>
+              <div class="col-md-8">
+                {{product.category}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Unit&agrave;
+              </div>
+              <div class="col-md-8">
+                {{product.unit}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Luogo
+              </div>
+              <div class="col-md-8">
+                {{product.location}}
+              </div>
+            </div>            
+            <div class="row">
+              <div class="col-md-4">
+                Osservazioni
+              </div>
+              <div class="col-md-8">
+                {{product.remarks}}
+              </div>
+            </div>      
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-default pull-right" [routerLink]="'/commodities'">Annulla</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header" data-background-color="red">
+          <h4 class="title">Movimenti
+              <span class="pull-right">
+                <a [routerLink]="['movements', 'new']">
+                    <i class="fa fa-plus"></i>
+                </a>
+              </span>
+        </h4>
+        </div>
+        <div class="content table-responsive table-full-width">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Quantit&agrave;</th>
+                        <th>Batch/Consegna</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let movement of movements">
+                        <td>{{movement.date}}</td>
+                        <td>{{movement.quantity}} {{product.unit}}</td>
+                        <td>
+                            <span *ngIf="movement.quantity < 0">{{movement.batch}}</span>
+                            <span *ngIf="movement.quantity > 0">{{movement.delivery}}</span>
+                        </td>
+                        <td>
+                            <a [routerLink]="['movements', movement.$key]"><i class="fa fa-pencil"></i></a>
+                        </td>                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
+

@@ -11,6 +11,7 @@ import { CommodityProductService } from './_services/index';
 import { CommodityProductComponent } from './commodityProducts/index';
 import { NewCommodityProductComponent } from './commodityProducts/index';
 import { EditCommodityProductComponent } from './commodityProducts/index';
+import { DetailCommodityProductComponent } from './commodityProducts/index';
 import { CommodityCategoryService } from './commodityCategories/index';
 import { NewCommodityMovementComponent } from './commodityMovements/index';
 import { CommodityMovementService } from './_services/index';
@@ -26,6 +27,7 @@ import { CommodityMovementService } from './_services/index';
     CommodityProductComponent,
     NewCommodityProductComponent,
     EditCommodityProductComponent,
+    DetailCommodityProductComponent,
     NewCommodityMovementComponent,
   ],
   providers: [
